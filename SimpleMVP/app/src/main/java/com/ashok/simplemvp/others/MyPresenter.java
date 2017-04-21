@@ -28,7 +28,7 @@ public class MyPresenter implements IPresenter {
     @Override
     public void onButtonClicked() {
         final NetworkService networkService = NetworkService.retrofit.create(NetworkService.class);
-        networkService.getRepoContributors("akjangra", "testFresco").enqueue(new Callback<List<Model>>() {
+        networkService.getRepoContributors("akjangra", "SimpleMVP").enqueue(new Callback<List<Model>>() {
             @Override
             public void onResponse(Call<List<Model>> call, Response<List<Model>> response) {
                 presentation.updateText("onResponse : " + response.body().toString());
@@ -46,6 +46,6 @@ public class MyPresenter implements IPresenter {
 
     @Override
     public void onDestroy() {
-
+        this.presentation = null;
     }
 }
