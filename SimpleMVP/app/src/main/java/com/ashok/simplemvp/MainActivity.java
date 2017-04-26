@@ -92,4 +92,11 @@ public class MainActivity extends AppCompatActivity implements IPresentation {
     public void btnClicked(){
         presenter.onButtonClicked();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        button.setOnClickListener(null);
+        presenter.onDestroy();
+    }
 }
